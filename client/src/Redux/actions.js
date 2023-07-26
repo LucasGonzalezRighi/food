@@ -44,16 +44,21 @@ export function getRecipesByName (name){
 }
 
 export function getRecipesById (id){
-    
-    return async function(dispatch){
-        const {data} = await axios.get(`http://localhost:3001/recipes/${id}`);
-    return dispatch( {
-        type : GET_BY_ID,
-        payload: data
-    })
-}
-}
+    try{
 
+        return async function(dispatch){
+            const {data} = await axios.get(`http://localhost:3001/recipes/${id}`);
+            return dispatch( {
+                type : GET_BY_ID,
+                payload: data
+            })
+        }
+    }
+    catch (error) {
+        alert(error.message);
+        }
+    }
+    
 export function getTypeDiets () {
     return async function(dispatch){
         const json = await axios.get(`http://localhost:3001/types`);

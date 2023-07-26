@@ -30,7 +30,7 @@ export default function CreateRecipe() {
     typeDiets: [],
     image: ''
   });
-
+console.log(input)
   useEffect(() => {
     dispatch(getTypeDiets());
   }, [dispatch]);
@@ -167,7 +167,7 @@ export default function CreateRecipe() {
                 </button>
               </div>
             );
-          })}
+          })}{console.log (errors)}
           {errors.title || errors.summary || errors.healthScore || errors.image || errors.typeDiets ? (
             <p className={styles.adv}>Please complete all the inputs to create your recipe.</p>
           ) : (
